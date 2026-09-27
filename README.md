@@ -1,6 +1,6 @@
 # MVP Instagram Tracker
 
-A browser tool that fetches **complete** Instagram follower and following lists, shows who doesn't follow back, and **tracks follower/following changes over time**. No installation: paste the code into the console on instagram.com.
+A browser tool that fetches **complete** Instagram follower and following lists, shows who doesn't follow back, and **tracks follower/following changes over time**. Use it as a Chrome extension, or paste it into the console on instagram.com.
 
 > All data stays in your browser. Nothing is sent to any server.
 
@@ -30,17 +30,33 @@ A browser tool that fetches **complete** Instagram follower and following lists,
 - **Safe pacing.** Randomized delays and long pauses. A circuit breaker stops extra requests as soon as Instagram starts throttling.
 - **Diagnostics report.** A technical report for troubleshooting that contains no usernames.
 
-## Usage
+## Installation
 
-1. Open [instagram.com](https://www.instagram.com) in Chrome, Edge or Firefox on a computer and log in.
+### Option A — Chrome extension (recommended)
+
+1. Download this repository: **Code → Download ZIP**, then unzip it. Or clone it with git.
+2. Open `chrome://extensions` in Chrome, Edge, Brave or another Chromium browser.
+3. Turn on **Developer mode** (top right).
+4. Click **Load unpacked** and select the `extension` folder.
+5. Pin the extension. Then either click its icon or press **Alt+Shift+I**.
+
+If you are not on Instagram, the extension opens instagram.com in a new tab and starts the tracker there. Log in to Instagram in that browser first.
+
+### Option B — Console (no installation)
+
+1. Open [instagram.com](https://www.instagram.com) on a computer and log in.
 2. Open the console:
    - Windows: `Ctrl + Shift + J`
    - Mac: `⌘ + ⌥ + J`
-3. Chrome blocks pasting the first time. Type `allow pasting` in the console and press Enter.
+3. Chrome blocks pasting the first time. Type `allow pasting` and press Enter.
 4. Copy the **whole** [`ig-tracker.js`](ig-tracker.js) file, paste it into the console and press Enter.
-5. In the panel, enter a username and press **Scan**. Leave the field empty to scan your own account.
 
-Minimize the panel with `▁`. The **IG** button in the bottom-right corner brings it back.
+Both options run the same code and share the same saved history.
+
+## Usage
+
+1. In the panel, enter a username and press **Scan**. Leave the field empty to scan your own account.
+2. Minimize the panel with `▁`. Bring it back with the **IG** button in the bottom-right corner or the extension icon.
 
 ## How change tracking works
 
@@ -50,6 +66,10 @@ Minimize the panel with `▁`. The **IG** button in the bottom-right corner brin
 4. **Back up** and **Restore backup** in the *Saved accounts* section move your records to another browser.
 
 Incomplete scans (stopped early, or throttled by Instagram) never overwrite a snapshot.
+
+## Building the extension zip
+
+`ig-tracker.js` in the repository root is the source. Run `./build-extension.sh` to copy it into `extension/` and create `dist/mvp-instagram-tracker-extension-v<version>.zip`.
 
 ## Settings
 

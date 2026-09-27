@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1 — 2026-09-27
+- **Chrome extension (Manifest V3).**
+  - Toolbar icon or Alt+Shift+I opens the tracker.
+  - If the current tab isn't Instagram, the extension opens it in a new tab first.
+  - Runs the same code as the console version and shares its saved history.
+- `build-extension.sh` builds the extension zip.
+- Fixed: "(you)" label next to your own account.
+
 ## 2.0 — 2026-09-27
 - **Change tracking.** Every complete scan is saved to IndexedDB. The next scan lists these in a **Changes** tab:
   - new followers and accounts that unfollowed
